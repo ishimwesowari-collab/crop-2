@@ -5,7 +5,7 @@ import streamlit as st
 # Load model
 with open("25RP18587.sav", "rb") as f:
     model = pickle.load(f)
-
+print(type(model))
 st.title("Crop yield prediction")
 st.write("Fill the following data")
 
@@ -15,3 +15,4 @@ if st.button("Yield"):
     X = np.array([[float(temperature)]])   # 2D array as expected by sklearn-like models
     pred = model.predict(X)
     st.success(f"Your yield is: {pred[0]:.2f}")
+
